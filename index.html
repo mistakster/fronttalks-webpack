@@ -63,14 +63,38 @@
 	</div>
 </section>
 
-
-
-
 <section class="slide">
 	<div>
 		<h2>Несколько &laquo;точек входа&raquo;</h2>
 	</div>
 </section>
+
+<section class="slide">
+	<div>
+		<h2>Загрузчики</h2>
+		<ol>
+			<li>preLoaders</li>
+			<li>loaders</li>
+			<li>require(&quot;raw!./file.js&quot;)</li>
+			<li>postLoaders</li>
+		</ol>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>Загрузчики</h2>
+		<ol>
+			<li>require(&quot;<mark>!</mark>raw!./file.txt&quot;) нет preLoaders</li>
+			<li>require(&quot;<mark>-!</mark>raw!./file.txt&quot;) нет preLoaders и loader</li>
+			<li>require(&quot;<mark>!!</mark>raw!./file.txt&quot;) нет загрузчиков</li>
+		</ol>
+	</div>
+</section>
+
+
+
+
 
 <section class="slide" id="contacts">
 	<div>
