@@ -27,14 +27,63 @@
 	</div>
 </section>
 
-<section class="slide">
+<section class="slide shout">
 	<div>
-		<h2>JavaScript-модули</h2>
-		<p>CommonJS</p>
-		<p>AMD</p>
-		<p>ES2015</p>
+		<h2>Для чего нужен webpack?</h2>
 	</div>
 </section>
+
+<section class="slide">
+	<div>
+		<h2>Для чего нужен webpack?</h2>
+		<ol>
+			<li>создание упаковок из JavaScript-модулей;</li>
+			<li>преобразование ресурсов из одного формата в другой;</li>
+			<li>запуск задач.</li>
+		</ol>
+	</div>
+</section>
+
+<section class="slide shout">
+	<div>
+		<h2>Форматы модулей</h2>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>CommonJS</h2>
+		<p>Формат разрабатывался исключительно для выполнения на&nbsp;сервере или внутри приложения.</p>
+		<ul>
+			<li>один файл &mdash; один модуль;</li>
+			<li>синхронная загрузка модулей;</li>
+			<li>код модулей не может быть исполнен в браузере без модификаций.</li>
+		</ul>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>AMD (Asynchronous Module Definition)</h2>
+		<ul>
+			<li>код может исполнятся в браузере без модификаций;</li>
+			<li>модуль может использоваться как обёртка для CommonJS-модуля;</li>
+			<li>возможна асинхронная загрузка модулей;</li>
+			<li>модуль может зависеть от данных любых типов&nbsp;&mdash;<br>текст, шаблоны, стили и т.п.</li>
+		</ul>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>UMD (Universal Module Definition)</h2>
+		<p>Универсальная обёртка, которая в&nbsp;зависимости от&nbsp;окружения
+			экспортирует модуль как CommonJS или как AMD.</p>
+		<p>При создании упаковки, webpack предпочитает AMD-релизацию.</p>
+	</div>
+</section>
+
+
 
 <section class="slide">
 	<div>
