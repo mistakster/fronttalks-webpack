@@ -223,6 +223,81 @@
 	</div>
 </section>
 
+<section class="slide">
+	<div>
+		<h2>Пишем свой загрузчик</h2>
+		<pre><code>module.exports = function (content) {</code></pre>
+		<pre><code>  this.cacheable();</code></pre>
+		<pre><code>  return transform(content);</code></pre>
+		<pre><code>};</code></pre>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>Пишем свой загрузчик</h2>
+		<pre><code>module.exports = function (content, map) {</code></pre>
+		<pre><code>  var callback = this.async();</code></pre>
+		<pre><code>  transformAsync(content, map, callback);</code></pre>
+		<pre><code>  // callback(err, result, map); </code></pre>
+		<pre><code>};</code></pre>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>Пишем свой загрузчик</h2>
+		<pre><code>module.exports = function (content) {</code></pre>
+		<pre><code>  var callback = this.async();</code></pre>
+		<pre><code>  var externalFile = path.resolve(&quot;stuff.js&quot;);</code></pre>
+		<pre><code>  this.addDependency(externalFile);</code></pre>
+		<pre><code>  appendExternalFile(content, externalFile, callback);</code></pre>
+		<pre><code>};</code></pre>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>Опции загрузчика</h2>
+		<p>Передаются в виде строки запроса при описании загрузчика.</p>
+		<pre><code>require("loader?with=parameter!./file");</code></pre>
+		<p>Как правило, загрузчики пользуются модулем
+			<a href="https://github.com/webpack/loader-utils" target="_blank">loader-utils</a>
+			для разбора параметров.</p>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>Опции загрузчика</h2>
+		<p>Можно указать в виде свойства объекта конфигурации webpack.</p>
+		<pre><code>module.exports = {</code></pre>
+		<pre><code>  yourAwesomeLoader: {</code></pre>
+		<pre><code>    // тут будет ваш конфиг</code></pre>
+		<pre><code>  }</code></pre>
+		<pre><code>};</code></pre>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>Опции загрузчика</h2>
+		<pre><code>var query = loaderUtils.parseQuery(this.query);</code></pre>
+		<pre><code>var configKey = query.config || "yourAwesomeLoader";</code></pre>
+		<pre><code>var config = this.options[configKey];</code></pre>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>Документация по загрузчикам</h2>
+		<ol>
+			<li><a href="http://webpack.github.io/docs/loaders.html" target="_blank">Loaders</a></li>
+			<li><a href="http://webpack.github.io/docs/how-to-write-a-loader.html" target="_blank">How to write a loader</a></li>
+		</ol>
+	</div>
+</section>
+
 <section class="slide shout">
 	<div>
 		<h2>Плагины</h2>
