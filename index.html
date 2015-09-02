@@ -83,15 +83,24 @@
 	</div>
 </section>
 
+<section class="slide">
+	<div>
+		<h2>Браузеры пока не умеют загружать модули.</h2>
+		<p>CommonJS нужна обёртка и глобальная функция <code>require</code></p>
+		<p>AMD нужна глобальная функция <code>define</code></p>
+	</div>
+</section>
 
+<section class="slide shout">
+	<div>
+		<h2>Webpack делает статический анализ кода и предоставляет модулям нужные зависимости.</h2>
+	</div>
+</section>
 
 <section class="slide">
 	<div>
-		<h2>Любые другие ресурсы через загрузчики</h2>
-		<p>JSX, TypeScript</p>
-		<p>CSS, LESS, SASS, Stylus</p>
-		<p>Handlebars, Jade</p>
-		<p>PNG, JPEG, SVG</p>
+		<h2>Конфигурация webpack</h2>
+		<pre>[Вставить пример конфига]</pre>
 	</div>
 </section>
 
@@ -99,7 +108,7 @@
 	<div>
 		<h2>Файл конфигурации</h2>
 
-		<p>Это просто модуль node.js</p>
+		<p>Явно указываем файл конфигурации</p>
 		<pre>
 			<code>$ webpack --config ./configs/site.js</code>
 			<code>$ webpack --config ./configs/admin.js</code>
@@ -114,34 +123,51 @@
 
 <section class="slide">
 	<div>
-		<h2>Несколько &laquo;точек входа&raquo;</h2>
+		<h2>Режим наблюдения за исходниками</h2>
+		<pre><code>$ webpack --watch</code></pre>
+	</div>
+</section>
+
+<section class="slide shout">
+	<div>
+		<h2>Загрузчики ресурсов</h2>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>Загрузчики ресурсов</h2>
+		<ul>
+			<li class="next">ES2015, JSX, TypeScript, &hellip;</li>
+			<li class="next">CSS, LESS, SASS, Stylus, &hellip;</li>
+			<li class="next">PNG, JPEG, SVG, &hellip;</li>
+			<li class="next">Handlebars, Jade, &hellip;</li>
+		</ul>
 	</div>
 </section>
 
 <section class="slide">
 	<div>
 		<h2>Загрузчики</h2>
-		<ol>
+		<ul>
 			<li>preLoaders</li>
 			<li>loaders</li>
-			<li>require(&quot;raw!./file.js&quot;)</li>
+			<li>require('raw!./file.txt')</li>
 			<li>postLoaders</li>
-		</ol>
+		</ul>
 	</div>
 </section>
 
 <section class="slide">
 	<div>
-		<h2>Загрузчики</h2>
+		<h2>В <code>require</code> можно подавлять другие загрузчики</h2>
 		<ol>
-			<li>require(&quot;<mark>!</mark>raw!./file.txt&quot;) нет preLoaders</li>
-			<li>require(&quot;<mark>-!</mark>raw!./file.txt&quot;) нет preLoaders и loader</li>
-			<li>require(&quot;<mark>!!</mark>raw!./file.txt&quot;) нет загрузчиков</li>
+			<li><code>require(&quot;<mark>!</mark>raw!./file.txt&quot;)</code> нет preLoaders</li>
+			<li><code>require(&quot;<mark>-!</mark>raw!./file.txt&quot;)</code> нет preLoaders и loader</li>
+			<li><code>require(&quot;<mark>!!</mark>raw!./file.txt&quot;)</code> нет загрузчиков</li>
 		</ol>
 	</div>
 </section>
-
-
 
 
 
