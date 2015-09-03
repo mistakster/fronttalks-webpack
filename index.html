@@ -513,6 +513,31 @@
 	</div>
 </section>
 
+<section class="slide">
+	<div>
+		<h2>Некешируемый загрузчик приложения</h2>
+		<p>Можно пользователю показать индикатор загрузки.</p>
+	</div>
+</section>
+
+<section class="slide cover w">
+	<div>
+		<img src="assets/main-and-chunks.png">
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>Загрузка по условию</h2>
+		<pre>
+			<code>new webpack.optimize.CommonsChunkPlugin({</code>
+			<code>  children: true,</code>
+			<code>  async: true</code>
+			<code>})</code>
+		</pre>
+	</div>
+</section>
+
 <section class="slide shout">
 	<div>
 		<h2>Подавляем ненужные ресурсы</h2>
