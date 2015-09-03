@@ -65,11 +65,11 @@
 <section class="slide">
 	<div>
 		<h2>CommonJS</h2>
-		<p>Формат разрабатывался исключительно для выполнения на&nbsp;сервере или внутри приложения.</p>
 		<ul>
 			<li>один файл &mdash; один модуль;</li>
 			<li>синхронная загрузка модулей;</li>
-			<li>код модулей не может быть исполнен в браузере без модификаций.</li>
+			<li>код модулей не&nbsp;может быть исполнен в&nbsp;браузере без модификаций&nbsp;&mdash;
+				формат разрабатывался исключительно для&nbsp;выполнения на&nbsp;сервере или внутри приложения.</li>
 		</ul>
 	</div>
 </section>
@@ -103,9 +103,10 @@
 	</div>
 </section>
 
-<section class="slide shout">
+<section class="slide">
 	<div>
-		<h2>Webpack делает статический анализ кода и предоставляет модулям нужные зависимости.</h2>
+		<h2>Webpack делает статический анализ кода</h2>
+		<p>Так он строит дерево зависимостей и собирает упаковку.</p>
 	</div>
 </section>
 
@@ -119,13 +120,17 @@
 <section class="slide">
 	<div>
 		<h2>Файл конфигурации</h2>
-
 		<p>Явно указываем файл конфигурации</p>
 		<pre>
 			<code>$ webpack --config ./configs/site.js</code>
 			<code>$ webpack --config ./configs/admin.js</code>
 		</pre>
+	</div>
+</section>
 
+<section class="slide">
+	<div>
+		<h2>Файл конфигурации</h2>
 		<p>Конфигурация по-умолчанию</p>
 		<pre>
 			<code>webpack.config.js</code>
@@ -172,7 +177,7 @@
 
 <section class="slide">
 	<div>
-		<h2>В <code>require</code> можно подавлять другие загрузчики</h2>
+		<h2>В <strong>require</strong> можно подавлять другие загрузчики</h2>
 		<ol>
 			<li><code>require(&quot;<mark>!</mark>raw!./file.txt&quot;)</code> нет preLoaders</li>
 			<li><code>require(&quot;<mark>-!</mark>raw!./file.txt&quot;)</code> нет preLoaders и loader</li>
@@ -193,7 +198,7 @@
 	<div>
 		<h2>Загрузка стилей</h2>
 		<ol>
-			<li>пропускаем стили чеерез пре- и пост-процессоры;</li>
+			<li>пропускаем стили через пре- и пост-процессоры;</li>
 			<li>css-loader преобразует текстовый файл в JS-модуль;</li>
 			<li>style-loader добавляет в&nbsp;модуль код, который вставляет в&nbsp;документ содержимое тегом &lt;style;&gt;</li>
 		</ol>
@@ -204,6 +209,12 @@
 	<div>
 		<h2>Загрузка стилей</h2>
 		<p>Стили удобно держать внутри скриптов на стадии разработки или для SPA.</p>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>Загрузка стилей</h2>
 		<p>На практике, они должны загрузиться до контента.
 			Extract Text Plugin извлекает обработанные стили и сохраняет в указанный файл.
 			Таким образом, вы можете добавить их на страницу тегом &lt;link&gt;</p>
@@ -238,33 +249,39 @@
 <section class="slide">
 	<div>
 		<h2>Пишем свой загрузчик</h2>
-		<pre><code>module.exports = function (content) {</code></pre>
-		<pre><code>  this.cacheable();</code></pre>
-		<pre><code>  return transform(content);</code></pre>
-		<pre><code>};</code></pre>
+		<pre>
+			<code>module.exports = function (content) {</code>
+			<code>  this.cacheable();</code>
+			<code>  return transform(content);</code>
+			<code>};</code>
+		</pre>
 	</div>
 </section>
 
 <section class="slide">
 	<div>
 		<h2>Пишем свой загрузчик</h2>
-		<pre><code>module.exports = function (content, map) {</code></pre>
-		<pre><code>  var callback = this.async();</code></pre>
-		<pre><code>  transformAsync(content, map, callback);</code></pre>
-		<pre><code>  // callback(err, result, map); </code></pre>
-		<pre><code>};</code></pre>
+		<pre>
+			<code>module.exports = function (content, map) {</code>
+			<code>  var callback = this.async();</code>
+			<code>  transformAsync(content, map, callback);</code>
+			<code>  // callback(err, result, map); </code>
+			<code>};</code>
+		</pre>
 	</div>
 </section>
 
 <section class="slide">
 	<div>
 		<h2>Пишем свой загрузчик</h2>
-		<pre><code>module.exports = function (content) {</code></pre>
-		<pre><code>  var callback = this.async();</code></pre>
-		<pre><code>  var externalFile = path.resolve(&quot;stuff.js&quot;);</code></pre>
-		<pre><code>  this.addDependency(externalFile);</code></pre>
-		<pre><code>  appendExternalFile(content, externalFile, callback);</code></pre>
-		<pre><code>};</code></pre>
+		<pre>
+			<code>module.exports = function (content) {</code>
+			<code>  var callback = this.async();</code>
+			<code>  var externalFile = path.resolve(&quot;stuff.js&quot;);</code>
+			<code>  this.addDependency(externalFile);</code>
+			<code>  appendExternalFile(content, externalFile, callback);</code>
+			<code>};</code>
+		</pre>
 	</div>
 </section>
 
@@ -283,20 +300,24 @@
 	<div>
 		<h2>Опции загрузчика</h2>
 		<p>Можно указать в виде свойства объекта конфигурации webpack.</p>
-		<pre><code>module.exports = {</code></pre>
-		<pre><code>  yourAwesomeLoader: {</code></pre>
-		<pre><code>    // тут будет ваш конфиг</code></pre>
-		<pre><code>  }</code></pre>
-		<pre><code>};</code></pre>
+		<pre>
+			<code>module.exports = {</code>
+			<code>  yourAwesomeLoader: {</code>
+			<code>    // тут будет конфигурация загрузчика</code>
+			<code>  }</code>
+			<code>};</code>
+		</pre>
 	</div>
 </section>
 
 <section class="slide">
 	<div>
 		<h2>Опции загрузчика</h2>
-		<pre><code>var query = loaderUtils.parseQuery(this.query);</code></pre>
-		<pre><code>var configKey = query.config || "yourAwesomeLoader";</code></pre>
-		<pre><code>var config = this.options[configKey];</code></pre>
+		<pre>
+			<code>var query = loaderUtils.parseQuery(this.query);</code>
+			<code>var configKey = query.config || "yourAwesomeLoader";</code>
+			<code>var config = this.options[configKey];</code>
+		</pre>
 	</div>
 </section>
 
@@ -371,13 +392,13 @@
 
 <section class="slide shout">
 	<div>
-		<h2>Сервер разработки и горячее обновление модулей</h2>
+		<h2>Сервер разработки и горячее обновление</h2>
 	</div>
 </section>
 
 <section class="slide shout">
 	<div>
-		<h2>Бонус: запуск задач</h2>
+		<h2>Бонус: запуск&nbsp;задач</h2>
 	</div>
 </section>
 
