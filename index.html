@@ -377,6 +377,57 @@
 	</div>
 </section>
 
+<section class="slide">
+	<div>
+		<h2>Несколько точек входа</h2>
+		<pre>
+			<code>entry: {</code>
+			<code>  &quot;site&quot;: &quot;./site&quot;,</code>
+			<code>  &quot;admin&quot;: &quot;./admin&quot;</code>
+			<code>}</code>
+		</pre>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>Несколько точек входа</h2>
+		<pre>
+			<code>output: {</code>
+			<code>  filename: &quot;[name].js&quot;,</code>
+			<code>  chunkFilename: &quot;[id].js&quot;</code>
+			<code>}</code>
+		</pre>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>Несколько точек входа</h2>
+		<pre>
+			<code>output: {</code>
+			<code>  path: require(&quot;path&quot;).resolve(&quot;./public/_/&quot;),</code>
+			<code>  publicPath: &quot;/assets/&quot;,</code>
+			<code>  filename: &quot;[name].js&quot;,</code>
+			<code>  chunkFilename: &quot;[id].js&quot;</code>
+			<code>}</code>
+		</pre>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>Общая часть</h2>
+		<pre>
+			<code>plugins: [</code>
+			<code>  new webpack.optimize.CommonsChunkPlugin({</code>
+			<code>    name: &quot;commons&quot;,</code>
+			<code>  })</code>
+			<code>]</code>
+		</pre>
+	</div>
+</section>
+
 <section class="slide shout">
 	<div>
 		<h2>Автоматическо разделение кода и асинхронная загрузка частей</h2>
