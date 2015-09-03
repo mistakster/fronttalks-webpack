@@ -570,7 +570,37 @@
 
 <section class="slide shout">
 	<div>
-		<h2>Сервер разработки и горячее обновление</h2>
+		<h2>Сервер для разработки и горячее обновление</h2>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>Сервер для разработки</h2>
+		<pre>
+			<code>$ webpack-dev-server --content-base ./public/_/</code>
+		</pre>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>Горячее обновление модулей</h2>
+		<p>Почти как live-reload.</p>
+		<p class="next">Загрузчик модулей может заменять отдельные модули.</p>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>Плагины для горячего обновления</h2>
+		<pre>
+			<code>plugins: {</code>
+			<code>  new webpack.optimize.OccurenceOrderPlugin(),</code>
+			<code>  new webpack.HotModuleReplacementPlugin(),</code>
+			<code>  new webpack.NoErrorsPlugin()</code>
+			<code>}</code>
+		</pre>
 	</div>
 </section>
 
