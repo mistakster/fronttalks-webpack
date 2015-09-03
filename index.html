@@ -434,9 +434,82 @@
 	</div>
 </section>
 
+<section class="slide">
+	<div>
+		<h2>Code splitting</h2>
+		<pre>
+			<code>require.ensure(</code>
+			<code>  [&quot;jquery&quot;, &quot;lodash&quot;],</code>
+			<code>  function (require) {</code>
+			<code>    var jquery = require(&quot;jquery&quot;);</code>
+			<code>  }</code>
+			<code>);</code>
+		</pre>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>Code splitting</h2>
+		<pre>
+			<code>define(</code>
+			<code>  [&quot;jquery&quot;, &quot;lodash&quot;],</code>
+			<code>  function (jquery, lodash) {</code>
+			<code>    // ...</code>
+			<code>  }</code>
+			<code>);</code>
+		</pre>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>bundle-loader</h2>
+		<pre>
+			<code>var waitForChunk = require('bundle!./page');</code>
+			<code>waitForChunk(function (page) {</code>
+			<code>  page.init();</code>
+			<code>});</code>
+		</pre>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>bundle-loader</h2>
+		<pre>
+			<code>var waitForChunk = require('bundle?<mark>lazy</mark>!./page');</code>
+			<code>waitForChunk(function (page) {</code>
+			<code>  page.init();</code>
+			<code>});</code>
+		</pre>
+	</div>
+</section>
+
 <section class="slide shout">
 	<div>
 		<h2>Некешируемый загрузчик приложения</h2>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>Некешируемый загрузчик приложения</h2>
+		<p><strong>Идея:</strong> На странице подключается только файл main.js,
+			который загружает весь остальной код.</p>
+		<p class="next"><strong>Проблема:</strong> Код приложение должен максимально
+			эффективно кешироваться браузером.</p>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>Некешируемый загрузчик приложения</h2>
+		<ol>
+			<li>для <strong>main.js</strong> запрещаем кеширование;</li>
+			<li>для остальных файлов устанавливаем заголовок <code>Expires</code> в далёкое будущее;</li>
+			<li>используем &laquo;code splitting&raquo; и случайные имена упаковок в webpack.</li>
+		</ol>
 	</div>
 </section>
 
@@ -457,8 +530,6 @@
 		<h2>Бонус: запуск&nbsp;задач</h2>
 	</div>
 </section>
-
-
 
 <section class="slide" id="contacts">
 	<div>
