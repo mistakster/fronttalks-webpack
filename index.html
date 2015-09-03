@@ -544,6 +544,30 @@
 	</div>
 </section>
 
+<section class="slide">
+	<div>
+		<h2>Подавляем ненужные ресурсы</h2>
+		<pre>
+			<code>new webpack.ContextReplacementPlugin(</code>
+			<code>  /moment[\/\\]locale$/,</code>
+			<code>  /en-gb|ru/</code>
+			<code>)</code>
+		</pre>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>Подавляем ненужные ресурсы</h2>
+		<pre>
+			<code>new webpack.IgnorePlugin(</code>
+			<code>  /moment[\/\\]locale$/,</code>
+			<code>  /en-gb|ru/</code>
+			<code>)</code>
+		</pre>
+	</div>
+</section>
+
 <section class="slide shout">
 	<div>
 		<h2>Сервер разработки и горячее обновление</h2>
