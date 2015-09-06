@@ -55,8 +55,8 @@
 		<h2>Для чего нужен webpack?</h2>
 		<ol>
 			<li>создание упаковок из JavaScript-модулей;</li>
-			<li>преобразование ресурсов из одного формата в другой;</li>
-			<li>запуск задач.</li>
+			<li class="next">преобразование ресурсов из одного формата в другой;</li>
+			<li class="next">запуск задач через загрузчики или плагины.</li>
 		</ol>
 	</div>
 </section>
@@ -81,6 +81,19 @@
 
 <section class="slide">
 	<div>
+		<h2>Пример CommonJS</h2>
+		<pre>
+			<code>var shuffle = require("lodash/collection/shuffle");</code>
+			<code>var camelCase = require("lodash/string/camelCase");</code>
+			<code>module.exports = function (list) {</code>
+			<code>  return shuffle(list).map(camelCase);</code>
+			<code>};</code>
+		</pre>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
 		<h2>AMD (Asynchronous Module Definition)</h2>
 		<ul>
 			<li>код может исполнятся в браузере без модификаций;</li>
@@ -93,18 +106,16 @@
 
 <section class="slide">
 	<div>
-		<h2>UMD (Universal Module Definition)</h2>
-		<p>Универсальная обёртка, которая в&nbsp;зависимости от&nbsp;окружения
-			экспортирует модуль как CommonJS или как AMD.</p>
-		<p>При создании упаковки, webpack предпочитает AMD-релизацию.</p>
-	</div>
-</section>
-
-<section class="slide">
-	<div>
-		<h2>Браузеры пока не умеют загружать модули.</h2>
-		<p>CommonJS нужна обёртка и глобальная функция <code>require</code></p>
-		<p>AMD нужна глобальная функция <code>define</code></p>
+		<h2>Пример AMD</h2>
+		<pre>
+			<code>define(["lodash/collection/shuffle",</code>
+			<code>        "lodash/string/camelCase"],</code>
+			<code>  function (shuffle, camelCase) {</code>
+			<code>    return function (list) {</code>
+			<code>      return shuffle(list).map(camelCase);</code>
+			<code>    };</code>
+			<code>  });</code>
+		</pre>
 	</div>
 </section>
 
