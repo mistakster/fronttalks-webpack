@@ -1,2 +1,3 @@
-require('./modules/a');
-require('./modules/c');
+define(['./modules/amd.js', './modules/data.json'], function (module1, data) {
+	alert(module1(data));
+});

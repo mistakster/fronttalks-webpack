@@ -22,9 +22,7 @@ module.exports = {
 	},
 
 	plugins: [
-		new webpack.optimize.CommonsChunkPlugin({
-			name: 'commons'
-		})
+		new webpack.optimize.AggressiveMergingPlugin()
 	]
 
 };
