@@ -6,23 +6,7 @@
 	<meta name="viewport" content="width=792, user-scalable=no">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<link rel="stylesheet" href="shower/themes/bright/styles/screen.css">
-	<style>
-		.intro {
-			text-align: center;
-		}
-		.intro h3 {
-			font-size: 200%;
-			margin-bottom: 1em;
-		}
-		.intro h3, .intro p, .intro a {
-			color: white;
-		}
-		.icon {
-			width: 24px;
-			height: 24px;
-			vertical-align: middle;
-		}
-	</style>
+	<link rel="stylesheet" href="assets/styles.css">
 </head>
 <body class="full">
 
@@ -129,7 +113,29 @@
 <section class="slide">
 	<div>
 		<h2>Конфигурация webpack</h2>
-		<pre>[Вставить пример конфига]</pre>
+		<pre>
+			<code>module.exports = {</code>
+			<code>  entry: &quot;./app.js&quot;,</code>
+			<code>  output: {</code>
+        	<code>    path: __dirname + &quot;/output&quot;,</code>
+        	<code>    filename: &quot;app.bundle.js&quot;</code>
+    		<code>  }</code>
+    		<code>};</code>
+		</pre>
+	</div>
+</section>
+
+<section class="slide cover h">
+	<div>
+		<span class="next config-part-1"></span>
+		<span class="next config-part-2"></span>
+		<span class="next config-part-3"></span>
+		<span class="next config-part-4"></span>
+		<span class="next config-part-5"></span>
+		<span class="next config-part-6"></span>
+		<span class="next config-part-7"></span>
+		<span class="next config-full"></span>
+		<img src="assets/real-config.png" class="config" alt="Конфигурация webpack">
 	</div>
 </section>
 
