@@ -112,6 +112,18 @@
 
 <section class="slide">
 	<div>
+		<h2>Загрузчики ресурсов</h2>
+		<ul>
+			<li>ES2015, JSX, TypeScript, &hellip;</li>
+			<li>CSS, LESS, SASS, Stylus, &hellip;</li>
+			<li>PNG, JPEG, SVG, &hellip;</li>
+			<li>Handlebars, Jade, &hellip;</li>
+		</ul>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
 		<h2>Конфигурация webpack</h2>
 		<pre>
 			<code>module.exports = {</code>
@@ -152,119 +164,22 @@
 
 <section class="slide">
 	<div>
-		<h2>Файл конфигурации</h2>
-		<p>Конфигурация по-умолчанию</p>
-		<pre>
-			<code>webpack.config.js</code>
-		</pre>
-	</div>
-</section>
-
-<section class="slide">
-	<div>
 		<h2>Режим наблюдения за исходниками</h2>
 		<pre><code>$ webpack --watch</code></pre>
 	</div>
 </section>
 
+<section class="slide">
+	<div>
+		<h2>Сервер разработки с горячей перезагрузкой</h2>
+
+	</div>
+</section>
+
+
 <section class="slide shout">
 	<div>
-		<h2>Загрузчики ресурсов</h2>
-	</div>
-</section>
-
-<section class="slide">
-	<div>
-		<h2>Загрузчики ресурсов</h2>
-		<ul>
-			<li class="next">ES2015, JSX, TypeScript, &hellip;</li>
-			<li class="next">CSS, LESS, SASS, Stylus, &hellip;</li>
-			<li class="next">PNG, JPEG, SVG, &hellip;</li>
-			<li class="next">Handlebars, Jade, &hellip;</li>
-		</ul>
-	</div>
-</section>
-
-<section class="slide">
-	<div>
-		<h2>Загрузчики</h2>
-		<ul>
-			<li>preLoaders</li>
-			<li>loaders</li>
-			<li>require('raw!./file.txt')</li>
-			<li>postLoaders</li>
-		</ul>
-	</div>
-</section>
-
-<section class="slide">
-	<div>
-		<h2>В <strong>require</strong> можно подавлять другие загрузчики</h2>
-		<ol>
-			<li><code>require(&quot;<mark>!</mark>raw!./file.txt&quot;)</code> нет preLoaders</li>
-			<li><code>require(&quot;<mark>-!</mark>raw!./file.txt&quot;)</code> нет preLoaders и loader</li>
-			<li><code>require(&quot;<mark>!!</mark>raw!./file.txt&quot;)</code> нет загрузчиков</li>
-		</ol>
-	</div>
-</section>
-
-<section class="slide">
-	<div>
-		<h2>Загрузка программных модулей</h2>
-		<p>Модуль пропускается через транспайлер, который переводит исходный код
-			с&nbsp;одного языка или диалекта JavaScript на&nbsp;другой (скорее всего, ES5).</p>
-	</div>
-</section>
-
-<section class="slide">
-	<div>
-		<h2>Загрузка стилей</h2>
-		<ol>
-			<li>пропускаем стили через пре- и пост-процессоры;</li>
-			<li>css-loader преобразует текстовый файл в JS-модуль;</li>
-			<li>style-loader добавляет в&nbsp;модуль код, который вставляет в&nbsp;документ содержимое тегом &lt;style;&gt;</li>
-		</ol>
-	</div>
-</section>
-
-<section class="slide">
-	<div>
-		<h2>Загрузка стилей</h2>
-		<p>Стили удобно держать внутри скриптов на стадии разработки или для SPA.</p>
-	</div>
-</section>
-
-<section class="slide">
-	<div>
-		<h2>Загрузка стилей</h2>
-		<p>На практике, они должны загрузиться до контента.
-			Extract Text Plugin извлекает обработанные стили и сохраняет в указанный файл.
-			Таким образом, вы можете добавить их на страницу тегом &lt;link&gt;</p>
-	</div>
-</section>
-
-<section class="slide">
-	<div>
-		<h2>Загрузка стилей</h2>
-		<p>Если внутри CSS вы ссылаетесь на какие-то локальные ресурсы, то они тоже будут обработаны загрузчиками.</p>
-	</div>
-</section>
-
-<section class="slide">
-	<div>
-		<h2>Загрузка картинок и шрифтов</h2>
-		<ul>
-			<li>file-loader</li>
-			<li>url-loader</li>
-		</ul>
-	</div>
-</section>
-
-<section class="slide">
-	<div>
-		<h2>Загрузка шаблонов</h2>
-		<p>Шаблоны преобразуются в JS-код. К ним в зависимости добавляется &laquo;runtime&raquo; шаблонизатора.</p>
-		<p>Модуль экспортирует функцию, вызвав которую с нужными параметрами вы получите, например, кусок HTML в виде строки.</p>
+		<h2>Пишем свой загрузчик</h2>
 	</div>
 </section>
 
