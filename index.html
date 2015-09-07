@@ -482,11 +482,42 @@
 	<div>
 		<h2>Подавляем ненужные ресурсы</h2>
 		<pre>
-			<code>new webpack.ContextReplacementPlugin(</code>
-			<code>  /moment[\/\\]locale$/,</code>
-			<code>  /^(en-gb|ru)\.js$/</code>
-			<code>)</code>
+			<code>plugins: [</code>
+			<code>  new webpack.ContextReplacementPlugin(</code>
+			<code>    /moment[\/\\]locale$/,</code>
+			<code>    /^(en-gb|ru)\.js$/</code>
+			<code>  )</code>
+			<code>]</code>
 		</pre>
+	</div>
+</section>
+
+<section class="slide shout">
+	<div>
+		<h2>Плагины</h2>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>Плагины</h2>
+		<ul>
+			<li>имеют доступ ко всем модулям (до и после трансформации);</li>
+			<li>могут добавлять в упаковку свои модули (например, &laquo;runtime&raquo;);</li>
+			<li>имеют доступ ко всем ресурсам, создаваемым после упаковки.</li>
+			<li>применяются для изменения конфигурации сборки, оптимизации, добавления
+				в&nbsp;модули каких-то объектов, горячего обновления ресурсов.</li>
+		</ul>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>Документация по плагинам</h2>
+		<ol>
+			<li><a href="http://webpack.github.io/docs/plugins.html" target="_blank">Plugins</a></li>
+			<li><a href="http://webpack.github.io/docs/list-of-plugins.html" target="_blank">List of plugins</a></li>
+		</ol>
 	</div>
 </section>
 
@@ -530,18 +561,6 @@
 	</div>
 </section>
 
-<section class="slide">
-	<div>
-		<h2>Загрузка по условию</h2>
-		<pre>
-			<code>new webpack.optimize.CommonsChunkPlugin({</code>
-			<code>  children: true,</code>
-			<code>  async: true</code>
-			<code>})</code>
-		</pre>
-	</div>
-</section>
-
 <section class="slide shout">
 	<div>
 		<h2>Сервер для разработки и горячее обновление</h2>
@@ -575,34 +594,6 @@
 			<code>  new webpack.NoErrorsPlugin()</code>
 			<code>}</code>
 		</pre>
-	</div>
-</section>
-
-<section class="slide shout">
-	<div>
-		<h2>Плагины</h2>
-	</div>
-</section>
-
-<section class="slide">
-	<div>
-		<h2>Плагины</h2>
-		<ul>
-			<li>имеют доступ ко всем модулям (до и после трансформации);</li>
-			<li>могут добавлять в упаковку свои модули (например, &laquo;runtime&raquo;);</li>
-			<li>имеют доступ ко всем ресурсам, создаваемым после упаковки.</li>
-			<li>применяются для изменения конфигурации сборки, оптимизации, добавления в модули каких-то объектов, горячего обновления ресурсов.</li>
-		</ul>
-	</div>
-</section>
-
-<section class="slide">
-	<div>
-		<h2>Документация по плагинам</h2>
-		<ol>
-			<li><a href="http://webpack.github.io/docs/plugins.html" target="_blank">Plugins</a></li>
-			<li><a href="http://webpack.github.io/docs/list-of-plugins.html" target="_blank">List of plugins</a></li>
-		</ol>
 	</div>
 </section>
 
