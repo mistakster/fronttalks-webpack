@@ -460,6 +460,38 @@
 
 <section class="slide shout">
 	<div>
+		<h2>Подавляем ненужные ресурсы</h2>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>Контекст</h2>
+		<pre>
+			<code><mark class="comment">// moment.js</mark></code>
+			<code>require(&quot;./locale/&quot; + name);</code>
+		</pre>
+		<p>
+			Папка &mdash; <code>./locale</code><br>
+			Регулярное выражение &mdash; <code>/^.*$/</code>
+		</p>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>Подавляем ненужные ресурсы</h2>
+		<pre>
+			<code>new webpack.ContextReplacementPlugin(</code>
+			<code>  /moment[\/\\]locale$/,</code>
+			<code>  /^(en-gb|ru)\.js$/</code>
+			<code>)</code>
+		</pre>
+	</div>
+</section>
+
+<section class="slide shout">
+	<div>
 		<h2>Некешируемый загрузчик приложения</h2>
 	</div>
 </section>
@@ -506,36 +538,6 @@
 			<code>  children: true,</code>
 			<code>  async: true</code>
 			<code>})</code>
-		</pre>
-	</div>
-</section>
-
-<section class="slide shout">
-	<div>
-		<h2>Подавляем ненужные ресурсы</h2>
-	</div>
-</section>
-
-<section class="slide">
-	<div>
-		<h2>Подавляем ненужные ресурсы</h2>
-		<pre>
-			<code>new webpack.ContextReplacementPlugin(</code>
-			<code>  /moment[\/\\]locale$/,</code>
-			<code>  /en-gb|ru/</code>
-			<code>)</code>
-		</pre>
-	</div>
-</section>
-
-<section class="slide">
-	<div>
-		<h2>Подавляем ненужные ресурсы</h2>
-		<pre>
-			<code>new webpack.IgnorePlugin(</code>
-			<code>  /moment[\/\\]locale$/,</code>
-			<code>  /en-gb|ru/</code>
-			<code>)</code>
 		</pre>
 	</div>
 </section>
