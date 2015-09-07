@@ -42,3 +42,16 @@
 .config-full.active ~ .config {
 	transform: scale(1) translateX(-50%) translateY(0) !important;
 }
+
+
+.common-chunk {
+	transition: 0.5s transform;
+	transform: scale(0.8) !important;
+}
+.common-chunk-1.active ~ .common-chunk {
+	transform: scale(1.6) translateX(25%) translateY(5%) !important;
+}
+.common-chunk-full.active ~ .common-chunk {
+	transform: scale(0.8) translateX(0) translateY(0) !important;
+}
+
