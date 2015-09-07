@@ -549,13 +549,42 @@
 
 <section class="slide">
 	<div>
-		<h2>Объявление глобавльных переменных</h2>
+		<h2>Глобальные переменные</h2>
 		<pre>
 			<code>new webpack.DefinePlugin({</code>
-			<code>  'process.env.NODE_ENV': '"' + process.env.NODE_ENV + '"',</code>
-			<code>  'API_ENDPOINT': '"' + config.apiEndpoint + '"'</code>
+			<code>  &quot;DEBUG&quot;: process.env.NODE_ENV != &quot;production&quot;,</code>
+			<code>  &quot;API_ENDPOINT&quot;: &quot;'&quot; + URL + &quot;'&quot;,</code>
+			<code>  &quot;helloWorldFunc&quot;: function () {</code>
+			<code>    return 'Hello, world!';</code>
+			<code>  }</code>
 			<code>})</code>
 		</pre>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>Глобальные переменные</h2>
+		<div style="display: table; width: 100%;">
+			<div style="display: table-cell; padding-right: 72px;">
+				<pre>
+					<code>if (DEBUG) {</code>
+					<code> alert(API_ENDPOINT);</code>
+					<code>}</code>
+					<code>helloWorldFunc();</code>
+				</pre>
+			</div>
+			<div style="display: table-cell;">
+				<pre>
+					<code>if (false) {</code>
+					<code> alert(('http://example.com'));</code>
+					<code>}</code>
+					<code>(function () {</code>
+					<code> return 'Hello, world!';</code>
+					<code>})();</code>
+				</pre>
+			</div>
+		</div>
 	</div>
 </section>
 
