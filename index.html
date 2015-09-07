@@ -124,7 +124,7 @@
 		<ul>
 			<li>ES2015, JSX, TypeScript, &hellip;</li>
 			<li>CSS, LESS, SASS, Stylus, &hellip;</li>
-			<li>PNG, JPEG, SVG, &hellip;</li>
+			<li>PNG, JPEG, SVG, WOFF, &hellip;</li>
 			<li>Handlebars, Jade, &hellip;</li>
 		</ul>
 	</div>
@@ -316,11 +316,53 @@
 	<div>
 		<h2>bundle-loader</h2>
 		<pre>
-			<code>var waitForChunk = require('bundle?<mark>lazy</mark>!./page');</code>
+			<code>var waitForChunk = require(&quot;bundle?<mark>lazy</mark>!./page&quot;);</code>
 			<code><mark class="comment">/* много очень нужного кода */</mark></code>
 			<code>waitForChunk(function (page) {</code>
 			<code>  page.init();</code>
 			<code>});</code>
+		</pre>
+	</div>
+</section>
+
+<section class="slide shout">
+	<div>
+		<h2>Зачем нужны загрузчики?</h2>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>Зависимостями могут быть&nbsp;любые&nbsp;файлы</h2>
+		<ul>
+			<li>ES2015, JSX, TypeScript, &hellip;</li>
+			<li>CSS, LESS, SASS, Stylus, &hellip;</li>
+			<li>PNG, JPEG, SVG, WOFF, &hellip;</li>
+			<li>Handlebars, Jade, &hellip;</li>
+		</ul>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>Конфигурация загрузчиков</h2>
+		<pre>
+			<code>require(&quot;babel-loader!./page.jsx&quot;);</code>
+		</pre>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>Конфигурация загрузчиков</h2>
+		<pre>
+			<code>module: {</code>
+			<code>  loaders: [{</code>
+			<code>    test: /\.jsx?$/,</code>
+			<code>    exclude: /node_modules/,</code>
+			<code>    loader: &quot;babel-loader?cacheDirectory&stage=0&quot;</code>
+			<code>  }]</code>
+			<code>}</code>
 		</pre>
 	</div>
 </section>
@@ -350,7 +392,7 @@
 			<code>module.exports = function (content, map) {</code>
 			<code>  var callback = this.async();</code>
 			<code>  transformAsync(content, map, callback);</code>
-			<code>  // callback(err, result, map); </code>
+			<code>  <mark class="comment">// callback(err, result, map);</mark></code>
 			<code>};</code>
 		</pre>
 	</div>
@@ -373,9 +415,8 @@
 <section class="slide">
 	<div>
 		<h2>Опции загрузчика</h2>
-		<p>Передаются в виде строки запроса при описании загрузчика.</p>
 		<pre><code>require("loader?with=parameter!./file");</code></pre>
-		<p>Как правило, загрузчики пользуются модулем
+		<p>Как правило, загрузчики пользуются модулем<br>
 			<a href="https://github.com/webpack/loader-utils" target="_blank">loader-utils</a>
 			для разбора параметров.</p>
 	</div>
