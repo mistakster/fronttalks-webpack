@@ -11,7 +11,7 @@ function isProduction() {
 
 // мы будем извлекать CSS из модулей и сохранять в отдельный файл
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var staticCssPlugin = new ExtractTextPlugin('[name].css', { allChunks: true });
+var staticCssPlugin = new ExtractTextPlugin('[name].css', {allChunks: true});
 
 
 // конфигурация
@@ -48,8 +48,8 @@ module.exports = {
 			loader: staticCssPlugin.extract('style-loader', 'css-loader')
 		}, {
 			test: /\.less$/,
-			loader: staticCssPlugin.extract('style-loader', 'css-loader!postcss-loader!less-loader'
-		},{
+			loader: staticCssPlugin.extract('style-loader', 'css-loader!postcss-loader!less-loader')
+		}, {
 			test: /\.(eot|ttf|woff|woff2|svg|png|jpg|jpeg)$/,
 			loader: 'url-loader?limit=20000'
 		}]
@@ -71,7 +71,7 @@ module.exports = {
 						});
 					});
 				};
-			});
+			})
 		]
 	},
 
