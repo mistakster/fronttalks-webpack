@@ -268,6 +268,65 @@
 
 <section class="slide shout">
 	<div>
+		<h2>Автоматическо разделение кода и&nbsp;асинхронная загрузка частей</h2>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>Code splitting</h2>
+		<pre>
+			<code>require.ensure( <mark class="comment">// CommonJS модуль</mark></code>
+			<code>  [&quot;jquery&quot;, &quot;lodash&quot;],</code>
+			<code>  function (require) {</code>
+			<code>    var jquery = require(&quot;jquery&quot;);</code>
+			<code>  }</code>
+			<code>);</code>
+		</pre>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>Code splitting</h2>
+		<pre>
+			<code>require( <mark class="comment">// AMD модуль</mark></code>
+			<code>  [&quot;jquery&quot;, &quot;lodash&quot;],</code>
+			<code>  function (jquery, lodash) {</code>
+			<code>    // ...</code>
+			<code>  }</code>
+			<code>);</code>
+		</pre>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>bundle-loader</h2>
+		<pre>
+			<code>var waitForChunk = require('bundle!./page');</code>
+			<code>waitForChunk(function (page) {</code>
+			<code>  page.init();</code>
+			<code>});</code>
+		</pre>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>bundle-loader</h2>
+		<pre>
+			<code>var waitForChunk = require('bundle?<mark>lazy</mark>!./page');</code>
+			<code><mark class="comment">/* много очень нужного кода */</mark></code>
+			<code>waitForChunk(function (page) {</code>
+			<code>  page.init();</code>
+			<code>});</code>
+		</pre>
+	</div>
+</section>
+
+<section class="slide shout">
+	<div>
 		<h2>Пишем свой загрузчик</h2>
 	</div>
 </section>
@@ -386,64 +445,6 @@
 	</div>
 </section>
 
-
-<section class="slide shout">
-	<div>
-		<h2>Автоматическо разделение кода и асинхронная загрузка частей</h2>
-	</div>
-</section>
-
-<section class="slide">
-	<div>
-		<h2>Code splitting</h2>
-		<pre>
-			<code>require.ensure(</code>
-			<code>  [&quot;jquery&quot;, &quot;lodash&quot;],</code>
-			<code>  function (require) {</code>
-			<code>    var jquery = require(&quot;jquery&quot;);</code>
-			<code>  }</code>
-			<code>);</code>
-		</pre>
-	</div>
-</section>
-
-<section class="slide">
-	<div>
-		<h2>Code splitting</h2>
-		<pre>
-			<code>define(</code>
-			<code>  [&quot;jquery&quot;, &quot;lodash&quot;],</code>
-			<code>  function (jquery, lodash) {</code>
-			<code>    // ...</code>
-			<code>  }</code>
-			<code>);</code>
-		</pre>
-	</div>
-</section>
-
-<section class="slide">
-	<div>
-		<h2>bundle-loader</h2>
-		<pre>
-			<code>var waitForChunk = require('bundle!./page');</code>
-			<code>waitForChunk(function (page) {</code>
-			<code>  page.init();</code>
-			<code>});</code>
-		</pre>
-	</div>
-</section>
-
-<section class="slide">
-	<div>
-		<h2>bundle-loader</h2>
-		<pre>
-			<code>var waitForChunk = require('bundle?<mark>lazy</mark>!./page');</code>
-			<code>waitForChunk(function (page) {</code>
-			<code>  page.init();</code>
-			<code>});</code>
-		</pre>
-	</div>
-</section>
 
 <section class="slide shout">
 	<div>
