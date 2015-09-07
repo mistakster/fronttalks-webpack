@@ -300,6 +300,15 @@
 	</div>
 </section>
 
+<section class="slide cover w" style="background-color: white">
+	<div>
+		<span class="next loader-1"></span>
+		<span class="next loader-2"></span>
+		<span class="next loader-full"></span>
+		<img src="assets/main-and-chunks.png" class="loader">
+	</div>
+</section>
+
 <section class="slide">
 	<div>
 		<h2>bundle-loader</h2>
@@ -521,45 +530,7 @@
 	</div>
 </section>
 
-<section class="slide shout">
-	<div>
-		<h2>Некешируемый загрузчик приложения</h2>
-	</div>
-</section>
 
-<section class="slide">
-	<div>
-		<h2>Некешируемый загрузчик приложения</h2>
-		<p><strong>Идея:</strong> На странице подключается только файл main.js,
-			который загружает весь остальной код.</p>
-		<p class="next"><strong>Проблема:</strong> Код приложение должен максимально
-			эффективно кешироваться браузером.</p>
-	</div>
-</section>
-
-<section class="slide">
-	<div>
-		<h2>Некешируемый загрузчик приложения</h2>
-		<ol>
-			<li>для <strong>main.js</strong> запрещаем кеширование;</li>
-			<li>для остальных файлов устанавливаем заголовок <code>Expires</code> в далёкое будущее;</li>
-			<li>используем &laquo;code splitting&raquo; и случайные имена упаковок в webpack.</li>
-		</ol>
-	</div>
-</section>
-
-<section class="slide">
-	<div>
-		<h2>Некешируемый загрузчик приложения</h2>
-		<p>Можно пользователю показать индикатор загрузки.</p>
-	</div>
-</section>
-
-<section class="slide cover w">
-	<div>
-		<img src="assets/main-and-chunks.png">
-	</div>
-</section>
 
 <section class="slide shout">
 	<div>

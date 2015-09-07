@@ -55,3 +55,16 @@
 	transform: scale(0.8) translateX(0) translateY(0) !important;
 }
 
+
+.loader {
+	transition: 0.5s transform;
+}
+.loader-1.active ~ .loader {
+	transform: scale(2.5) translateY(-20%) !important;
+}
+.loader-2.active ~ .loader {
+	transform: scale(2.5) translateX(-30%) translateY(-20%) !important;
+}
+.loader-full.active ~ .loader {
+	transform: scale(1) translateY(-50%) !important;
+}
