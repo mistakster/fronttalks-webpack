@@ -1,12 +1,11 @@
-.intro {
+.slide.intro {
 	text-align: center;
+	background: white;
 }
-.intro h3 {
-	font-size: 200%;
-	margin-bottom: 1em;
-}
-.intro h3, .intro p, .intro a {
-	color: white;
+.slide.intro h3 {
+	color: #52A2DF;
+	font: 100px/1 'Open Sans Light',sans-serif;
+	margin-bottom: 48px;
 }
 .icon {
 	width: 24px;
