@@ -612,7 +612,7 @@
 <section class="slide">
 	<div>
 		<div style="width: 100%; height: 80%; border: 2px solid #aaaaaa; display: flex; align-items: center; justify-content: center">
-			<div style="color: #aaaaaa; font-size: 50px; line-height: 1; width: 80%;">
+			<div style="color: #aaaaaa; font-size: 200%; line-height: 1.5; width: 80%;">
 				Тут будет видео с&nbsp;обновлением страницы при сохранении файла
 			</div>
 		</div>
@@ -640,21 +640,42 @@
 
 <section class="slide">
 	<div>
-		<h2>Запуск задач</h2>
+		<h2>Запуск задач плагином</h2>
 		<pre>
-			<code>$ npm run clean</code>
+			<code>var MyTaskRunner = function () {};</code>
+			<code>MyTaskRunner.prototype.apply = function (compiler) {</code>
+			<code>  <mark class="comment">// задачи</mark></code>
+			<code>}</code>
+			<code>module.exports = MyTaskRunner;</code>
 		</pre>
 	</div>
 </section>
 
 <section class="slide">
 	<div>
-		<h2>$ npm run clean</h2>
+		<h2>Запуск задач плагином</h2>
 		<pre>
-			<code>{</code>
-			<code>  &quot;scripts&quot;: {</code>
-			<code>    &quot;clean&quot;: &quot;rm -rf ./public/_&quot;</code>
-			<code>  }</code>
+			<code>compiler.plugin(&quot;run&quot;, function (params, callback) {</code>
+			<code>  console.log(&quot;*** Run ***&quot;);</code>
+			<code>  callback();</code>
+			<code>});</code>
+			<code>compiler.plugin(&quot;done&quot;, function () {</code>
+			<code>  console.log(&quot;*** Done ***&quot;);</code>
+			<code>});</code>
+		</pre>
+	</div>
+</section>
+
+
+<section class="slide">
+	<div>
+		<h2>Запуск задач</h2>
+		<pre>
+			<code>$ npm run clean</code>
+		</pre>
+		<pre>
+			<code>&quot;scripts&quot;: {</code>
+			<code>  &quot;clean&quot;: &quot;rm -rf ./public/_&quot;</code>
 			<code>}</code>
 		</pre>
 	</div>
@@ -674,11 +695,9 @@
 	<div>
 		<h2>$ npm run build:site</h2>
 		<pre>
-			<code>{</code>
-			<code>  &quot;scripts&quot;: {</code>
-			<code>    &quot;build:site&quot;: &quot;./node_modules/.bin/webpack &hellip;</code>
-			<code>    &quot;build:admin&quot;: &quot;./node_modules/.bin/webpack &hellip;</code>
-			<code>  }</code>
+			<code>&quot;scripts&quot;: {</code>
+			<code>  &quot;build:site&quot;: &quot;./node_modules/.bin/webpack --config site&hellip;</code>
+			<code>  &quot;build:admin&quot;: &quot;./node_modules/.bin/webpack &hellip;</code>
 			<code>}</code>
 		</pre>
 	</div>
@@ -690,17 +709,9 @@
 		<pre>
 			<code>$ npm run myCoolJavaScript</code>
 		</pre>
-	</div>
-</section>
-
-<section class="slide">
-	<div>
-		<h2>$ npm run myCoolJavaScript</h2>
 		<pre>
-			<code>{</code>
-			<code>  &quot;scripts&quot;: {</code>
-			<code>    &quot;myCoolJavaScript&quot;: &quot;node my-cool-javascript.js&quot;</code>
-			<code>  }</code>
+			<code>&quot;scripts&quot;: {</code>
+			<code>  &quot;myCoolJavaScript&quot;: &quot;node my-cool-javascript.js&quot;</code>
 			<code>}</code>
 		</pre>
 	</div>
