@@ -68,3 +68,10 @@
 .loader-full.active ~ .loader {
 	transform: scale(1) translateY(-50%) !important;
 }
+.move-to-https {
+	opacity: 0;
+	transition: opacity 0.5s;
+}
+.loader-full.active ~ .move-to-https {
+	opacity: 1;
+}
