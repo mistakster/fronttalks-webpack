@@ -410,9 +410,11 @@
 	<div>
 		<h2>Сервер для разработки</h2>
 		<pre>
-			<code>$ webpack-dev-server --content-base ./public/_/</code>
+			<code>$ npm i -g webpack-dev-server</code>
+			<code>$ webpack-dev-server</code>
 		</pre>
-		<p>Можно встроить в существующий сервер на Node.js</p>
+		<p>Можно встроить в&nbsp;существующий сервер на&nbsp;Node.js или
+			пробросить доступ к&nbsp;нему через прокси-сервер.</p>
 	</div>
 </section>
 
@@ -421,19 +423,6 @@
 		<video preload="auto" loop>
 			<source src="assets/dev-server.mp4" type="video/mp4">
 		</video>
-	</div>
-</section>
-
-<section class="slide">
-	<div>
-		<h2>Плагины для горячего обновления</h2>
-		<pre>
-			<code>plugins: {</code>
-			<code>  new webpack.optimize.OccurenceOrderPlugin(),</code>
-			<code>  new webpack.HotModuleReplacementPlugin(),</code>
-			<code>  new webpack.NoErrorsPlugin()</code>
-			<code>}</code>
-		</pre>
 	</div>
 </section>
 
