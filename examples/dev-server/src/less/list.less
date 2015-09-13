@@ -1,0 +1,38 @@
+.list {
+  padding: 1rem;
+
+  &__heading {
+    font-size: 1.5rem;
+  }
+
+  &__content {
+    margin: 0.5rem 0 0.5rem 2rem;
+  }
+
+  &__notes {
+    font-style: italic;
+  }
+
+}
+
+.list-item {
+  list-style: none;
+
+  &__tick {
+    margin-right: 0.5rem;
+  }
+
+  &__marked {
+    &::after {
+      content: '';
+      display: inline-block;
+      background: url('../images/star.svg') no-repeat 50% 50%;
+      background-size: 1rem 1rem;
+      width: 1rem;
+      height: 1rem;
+      line-height: 1rem;
+      margin-left: 0.5rem;
+      vertical-align: top;
+    }
+  }
+}

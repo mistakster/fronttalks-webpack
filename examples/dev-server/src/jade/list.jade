@@ -1,0 +1,16 @@
+section.list
+  h3.list__heading ToDo list
+  ul.list__content
+    - for (var x = 1; x <= 4; x++)
+      - var itemClassName = ['list__item', 'list-item'];
+      - if (x == 2 || x == 3)
+        - itemClassName.push('list-item__marked');
+      li(class=itemClassName)
+        label.list-item__label
+          input.list-item__tick(
+            type="checkbox",
+            checked=(x==1)
+            )
+          = 'Item ' + x
+  footer.list__footer
+    p.list__notes Footer notes
