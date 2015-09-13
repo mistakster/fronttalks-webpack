@@ -158,13 +158,7 @@
 
 <section class="slide shout">
 	<div>
-		<h2>Примеры из&nbsp;жизни</h2>
-	</div>
-</section>
-
-<section class="slide shout">
-	<div>
-		<h2>Несколько точек входа</h2>
+		<h2>Обнаружение общих модулей</h2>
 	</div>
 </section>
 
@@ -182,19 +176,7 @@
 
 <section class="slide">
 	<div>
-		<h2>Несколько точек входа</h2>
-		<pre>
-			<code>output: {</code>
-			<code>  filename: &quot;[name].js&quot;,</code>
-			<code>  chunkFilename: &quot;[id].js&quot;</code>
-			<code>}</code>
-		</pre>
-	</div>
-</section>
-
-<section class="slide">
-	<div>
-		<h2>Несколько точек входа</h2>
+		<h2>Параметры финальной упаковки</h2>
 		<pre>
 			<code>output: {</code>
 			<code>  path: require(&quot;path&quot;).resolve(&quot;./public/_/&quot;),</code>
@@ -208,11 +190,12 @@
 
 <section class="slide">
 	<div>
-		<h2>Общая часть</h2>
+		<h2>Обнаружение общих модулей</h2>
 		<pre>
 			<code>plugins: [</code>
 			<code>  new webpack.optimize.CommonsChunkPlugin({</code>
 			<code>    name: &quot;commons&quot;,</code>
+			<code>    filename: &quot;[name].js&quot;</code>
 			<code>  })</code>
 			<code>]</code>
 		</pre>
