@@ -240,16 +240,6 @@
 	</div>
 </section>
 
-<section class="slide">
-	<div>
-		<h2>Документация по плагинам</h2>
-		<ol>
-			<li><a href="http://webpack.github.io/docs/plugins.html" target="_blank">Plugins</a></li>
-			<li><a href="http://webpack.github.io/docs/list-of-plugins.html" target="_blank">List of plugins</a></li>
-		</ol>
-	</div>
-</section>
-
 <section class="slide shout">
 	<div>
 		<h2>Автоматическое разделение кода и&nbsp;асинхронная загрузка частей</h2>
@@ -260,24 +250,9 @@
 	<div>
 		<h2>Code splitting</h2>
 		<pre>
-			<code>require.ensure( <mark class="comment">// CommonJS модуль</mark></code>
-			<code>  [&quot;jquery&quot;, &quot;lodash&quot;],</code>
+			<code>require.ensure([&quot;jquery&quot;, &quot;lodash&quot;],</code>
 			<code>  function (require) {</code>
 			<code>    var jQuery = require(&quot;jquery&quot;);</code>
-			<code>  }</code>
-			<code>);</code>
-		</pre>
-	</div>
-</section>
-
-<section class="slide">
-	<div>
-		<h2>Code splitting</h2>
-		<pre>
-			<code>require( <mark class="comment">// AMD модуль</mark></code>
-			<code>  [&quot;jquery&quot;, &quot;lodash&quot;],</code>
-			<code>  function (jQuery, lodash) {</code>
-			<code>    <mark class="comment">// ...</mark></code>
 			<code>  }</code>
 			<code>);</code>
 		</pre>
