@@ -112,6 +112,37 @@
 
 <section class="slide shout">
 	<div>
+		<h2>Загрузчики и&nbsp;плагины</h2>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>Загрузчки</h2>
+		<ul>
+			<li>преобразуют данные из одного формата в другой;</li>
+			<li>могут добавлять в упаковку другие модули;</li>
+			<li>как правило, делают одну трансформацию;</li>
+			<li>работают только с одним модулем.</li>
+		</ul>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>Плагины</h2>
+		<ul>
+			<li>имеют доступ ко всем модулям (до и после трансформации);</li>
+			<li>могут добавлять в упаковку свои модули (например, &laquo;runtime&raquo;);</li>
+			<li>имеют доступ ко всем ресурсам, создаваемым после упаковки.</li>
+			<li>применяются для изменения конфигурации сборки, оптимизации, добавления
+				в&nbsp;модули каких-то объектов, горячего обновления ресурсов.</li>
+		</ul>
+	</div>
+</section>
+
+<section class="slide shout">
+	<div>
 		<h2>Конфигурация webpack</h2>
 	</div>
 </section>
@@ -223,25 +254,6 @@
 
 <section class="slide shout">
 	<div>
-		<h2>Плагины</h2>
-	</div>
-</section>
-
-<section class="slide">
-	<div>
-		<h2>Плагины</h2>
-		<ul>
-			<li>имеют доступ ко всем модулям (до и после трансформации);</li>
-			<li>могут добавлять в упаковку свои модули (например, &laquo;runtime&raquo;);</li>
-			<li>имеют доступ ко всем ресурсам, создаваемым после упаковки.</li>
-			<li>применяются для изменения конфигурации сборки, оптимизации, добавления
-				в&nbsp;модули каких-то объектов, горячего обновления ресурсов.</li>
-		</ul>
-	</div>
-</section>
-
-<section class="slide shout">
-	<div>
 		<h2>Автоматическое разделение кода и&nbsp;асинхронная загрузка частей</h2>
 	</div>
 </section>
@@ -293,141 +305,6 @@
 			<code>  page.init();</code>
 			<code>});</code>
 		</pre>
-	</div>
-</section>
-
-<section class="slide shout">
-	<div>
-		<h2>Зачем нужны загрузчики?</h2>
-	</div>
-</section>
-
-<section class="slide">
-	<div>
-		<h2>Зависимостями могут быть&nbsp;любые&nbsp;файлы</h2>
-		<ul>
-			<li>ES2015, JSX, TypeScript, &hellip;</li>
-			<li>CSS, LESS, SASS, Stylus, &hellip;</li>
-			<li>PNG, JPEG, SVG, WOFF, &hellip;</li>
-			<li>Handlebars, Jade, &hellip;</li>
-		</ul>
-	</div>
-</section>
-
-<section class="slide">
-	<div>
-		<h2>Конфигурация загрузчиков</h2>
-		<pre>
-			<code>require(&quot;babel-loader!./page.jsx&quot;);</code>
-		</pre>
-	</div>
-</section>
-
-<section class="slide">
-	<div>
-		<h2>Конфигурация загрузчиков</h2>
-		<pre>
-			<code>module: {</code>
-			<code>  loaders: [{</code>
-			<code>    test: /\.jsx?$/,</code>
-			<code>    exclude: /node_modules/,</code>
-			<code>    loader: &quot;babel-loader?cacheDirectory&stage=0&quot;</code>
-			<code>  }]</code>
-			<code>}</code>
-		</pre>
-	</div>
-</section>
-
-<!--
-<section class="slide shout">
-	<div>
-		<h2>Пишем свой загрузчик</h2>
-	</div>
-</section>
-
-<section class="slide">
-	<div>
-		<h2>Пишем свой загрузчик</h2>
-		<pre>
-			<code>module.exports = function (content) {</code>
-			<code>  this.cacheable();</code>
-			<code>  return transform(content);</code>
-			<code>};</code>
-		</pre>
-	</div>
-</section>
-
-<section class="slide">
-	<div>
-		<h2>Пишем свой загрузчик</h2>
-		<pre>
-			<code>module.exports = function (content, map) {</code>
-			<code>  var callback = this.async();</code>
-			<code>  transformAsync(content, map, callback);</code>
-			<code>  <mark class="comment">// callback(err, result, map);</mark></code>
-			<code>};</code>
-		</pre>
-	</div>
-</section>
-
-<section class="slide">
-	<div>
-		<h2>Пишем свой загрузчик</h2>
-		<pre>
-			<code>module.exports = function (content) {</code>
-			<code>  var callback = this.async();</code>
-			<code>  var externalFile = path.resolve(&quot;stuff.js&quot;);</code>
-			<code>  this.addDependency(externalFile);</code>
-			<code>  appendExternalFile(content, externalFile, callback);</code>
-			<code>};</code>
-		</pre>
-	</div>
-</section>
-
-<section class="slide">
-	<div>
-		<h2>Опции загрузчика</h2>
-		<pre><code>require("loader?with=parameter!./file");</code></pre>
-		<p>Как правило, загрузчики пользуются модулем<br>
-			<a href="https://github.com/webpack/loader-utils" target="_blank">loader-utils</a>
-			для разбора параметров.</p>
-	</div>
-</section>
-
-<section class="slide">
-	<div>
-		<h2>Опции загрузчика</h2>
-		<p>Можно указать в виде свойства объекта конфигурации webpack.</p>
-		<pre>
-			<code>module.exports = {</code>
-			<code>  yourAwesomeLoader: {</code>
-			<code>    <mark class="comment">// тут будет конфигурация загрузчика</mark></code>
-			<code>  }</code>
-			<code>};</code>
-		</pre>
-	</div>
-</section>
-
-<section class="slide">
-	<div>
-		<h2>Опции загрузчика</h2>
-		<pre>
-			<code>var query = loaderUtils.parseQuery(this.query);</code>
-			<code>var configKey = query.config || "yourAwesomeLoader";</code>
-			<code>var config = this.options[configKey];</code>
-		</pre>
-	</div>
-</section>
--->
-
-<section class="slide">
-	<div>
-		<h2>Документация по загрузчикам</h2>
-		<ol>
-			<li><a href="http://webpack.github.io/docs/loaders.html" target="_blank">Loaders</a></li>
-			<li><a href="http://webpack.github.io/docs/how-to-write-a-loader.html" target="_blank">How to write a loader</a></li>
-			<li><a href="http://webpack.github.io/docs/list-of-loaders.html" target="_blank">List of loaders</a></li>
-		</ol>
 	</div>
 </section>
 
@@ -539,18 +416,6 @@
 	</div>
 </section>
 
-<!--
-<section class="slide">
-	<div>
-		<div style="width: 100%; height: 80%; border: 2px solid #aaaaaa; display: flex; align-items: center; justify-content: center">
-			<div style="color: #aaaaaa; font-size: 200%; line-height: 1.5; width: 80%;">
-				Тут будет видео с&nbsp;обновлением страницы при сохранении файла
-			</div>
-		</div>
-	</div>
-</section>
--->
-
 <section class="slide cover h w video-player">
 	<div>
 		<video preload="auto" loop>
@@ -558,7 +423,6 @@
 		</video>
 	</div>
 </section>
-
 
 <section class="slide">
 	<div>
@@ -606,7 +470,6 @@
 		</pre>
 	</div>
 </section>
-
 
 <section class="slide">
 	<div>
@@ -657,6 +520,88 @@
 		</pre>
 	</div>
 </section>
+
+<!--
+<section class="slide shout">
+	<div>
+		<h2>Пишем свой загрузчик</h2>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>Пишем свой загрузчик</h2>
+		<pre>
+			<code>module.exports = function (content) {</code>
+			<code>  this.cacheable();</code>
+			<code>  return transform(content);</code>
+			<code>};</code>
+		</pre>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>Пишем свой загрузчик</h2>
+		<pre>
+			<code>module.exports = function (content, map) {</code>
+			<code>  var callback = this.async();</code>
+			<code>  transformAsync(content, map, callback);</code>
+			<code>  <mark class="comment">// callback(err, result, map);</mark></code>
+			<code>};</code>
+		</pre>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>Пишем свой загрузчик</h2>
+		<pre>
+			<code>module.exports = function (content) {</code>
+			<code>  var callback = this.async();</code>
+			<code>  var externalFile = path.resolve(&quot;stuff.js&quot;);</code>
+			<code>  this.addDependency(externalFile);</code>
+			<code>  appendExternalFile(content, externalFile, callback);</code>
+			<code>};</code>
+		</pre>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>Опции загрузчика</h2>
+		<pre><code>require("loader?with=parameter!./file");</code></pre>
+		<p>Как правило, загрузчики пользуются модулем<br>
+			<a href="https://github.com/webpack/loader-utils" target="_blank">loader-utils</a>
+			для разбора параметров.</p>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>Опции загрузчика</h2>
+		<p>Можно указать в виде свойства объекта конфигурации webpack.</p>
+		<pre>
+			<code>module.exports = {</code>
+			<code>  yourAwesomeLoader: {</code>
+			<code>    <mark class="comment">// тут будет конфигурация загрузчика</mark></code>
+			<code>  }</code>
+			<code>};</code>
+		</pre>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>Опции загрузчика</h2>
+		<pre>
+			<code>var query = loaderUtils.parseQuery(this.query);</code>
+			<code>var configKey = query.config || "yourAwesomeLoader";</code>
+			<code>var config = this.options[configKey];</code>
+		</pre>
+	</div>
+</section>
+-->
 
 <section class="slide shout">
 	<div>
