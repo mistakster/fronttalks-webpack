@@ -10,6 +10,8 @@
 </head>
 <body class="full">
 
+<div id="log" style="position: absolute; z-index: 100;"></div>
+
 <header class="caption">
 	<h1>Глубокое погружение в webpack</h1>
 
@@ -54,60 +56,15 @@
 	</div>
 </slide>
 
-<section class="slide shout">
-	<div>
-		<h2>Форматы модулей</h2>
-	</div>
-</section>
-
 <section class="slide">
 	<div>
-		<h2>CommonJS</h2>
-		<ul>
-			<li>один файл &mdash; один модуль;</li>
-			<li>синхронная загрузка модулей;</li>
-			<li>код модулей не&nbsp;может быть исполнен в&nbsp;браузере без модификаций&nbsp;&mdash;
-				формат разрабатывался исключительно для&nbsp;выполнения на&nbsp;сервере или внутри приложения.</li>
-		</ul>
-	</div>
-</section>
-
-<section class="slide">
-	<div>
-		<h2>Пример CommonJS</h2>
+		<h2>Пример CommonJS модуля</h2>
 		<pre>
-			<code>var shuffle = require("lodash/collection/shuffle");</code>
-			<code>var camelCase = require("lodash/string/camelCase");</code>
+			<code>var shuffle = require(&quot;lodash/collection/shuffle&quot;);</code>
+			<code>var camelCase = require(&quot;lodash/string/camelCase&quot;);</code>
 			<code>module.exports = function (list) {</code>
 			<code>  return shuffle(list).map(camelCase);</code>
 			<code>};</code>
-		</pre>
-	</div>
-</section>
-
-<section class="slide">
-	<div>
-		<h2>AMD (Asynchronous Module Definition)</h2>
-		<ul>
-			<li>код может исполнятся в браузере без модификаций;</li>
-			<li>модуль может использоваться как обёртка для CommonJS-модуля;</li>
-			<li>возможна асинхронная загрузка модулей;</li>
-			<li>модуль может зависеть от данных любых типов&nbsp;&mdash;<br>текст, шаблоны, стили и т.п.</li>
-		</ul>
-	</div>
-</section>
-
-<section class="slide">
-	<div>
-		<h2>Пример AMD</h2>
-		<pre>
-			<code>define(["lodash/collection/shuffle",</code>
-			<code>        "lodash/string/camelCase"],</code>
-			<code>  function (shuffle, camelCase) {</code>
-			<code>    return function (list) {</code>
-			<code>      return shuffle(list).map(camelCase);</code>
-			<code>    };</code>
-			<code>  });</code>
 		</pre>
 	</div>
 </section>
@@ -119,9 +76,9 @@
 	</div>
 </section>
 
-<section class="slide cover w h" style="background-color: white">
+<section class="slide cover w h video-player" style="background-color: white">
 	<div>
-		<video preload="auto" autoplay loop>
+		<video preload="auto" loop>
 			<source src="assets/app-simple-tree.mp4" type="video/mp4">
 		</video>
 	</div>
@@ -139,9 +96,9 @@
 	</div>
 </section>
 
-<section class="slide cover w h" style="background-color: white">
+<section class="slide cover w h video-player" style="background-color: white">
 	<div>
-		<video preload="auto" autoplay loop>
+		<video preload="auto" loop>
 			<source src="assets/app-dep-tree.mp4" type="video/mp4">
 		</video>
 	</div>
@@ -630,9 +587,9 @@
 </section>
 -->
 
-<section class="slide cover h w">
+<section class="slide cover h w video-player">
 	<div>
-		<video preload="auto" loop autoplay>
+		<video preload="auto" loop>
 			<source src="assets/dev-server.mp4" type="video/mp4">
 		</video>
 	</div>
@@ -763,6 +720,7 @@
 <div class="progress"><div></div></div>
 
 <script src="shower/shower.min.js"></script>
+<script src="assets/video-player.js"></script>
 <!-- Copyright © 2015 Владимир Кузнецов -->
 </body>
 </html>
