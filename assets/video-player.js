@@ -22,6 +22,7 @@
 					} else {
 						if (!video.paused) {
 							video.pause();
+							video.currentTime = 0;
 						}
 					}
 				}
