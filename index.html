@@ -36,29 +36,42 @@
 	</div>
 </section>
 
-<section class="slide">
-	<div>
-		<h2>Для чего нужен webpack?</h2>
-		<ol>
-			<li>создание упаковок из JavaScript-модулей;</li>
-			<li class="next">преобразование ресурсов из одного формата в другой;</li>
-			<li class="next">запуск задач через загрузчики или плагины.</li>
-		</ol>
-	</div>
-</section>
-
 <section class="slide cover w" style="background-color: white">
 	<div>
 		<h2 style="font-size: 150px; text-align: center; position: absolute; width: 100%; left: 0; top: 50%; transform: translateX(0) translateY(-50%)">
 			<span style="display: none">Grunt и Gulp</span> vs. <span style="display: none">webpack</span>
 		</h2>
-		<img src="assets/gg-vs-webpack.png">
+		<img src="assets/gg-vs-webpack.png" alt="Grunt и Gulp vs. webpack">
+	</div>
+</section>
+
+<section class="slide shout shrink">
+	<div>
+		<h2>Это не просто &laquo;taks&nbsp;runner&raquo;</h2>
 	</div>
 </section>
 
 <section class="slide">
 	<div>
-		<h2>Пример CommonJS модуля</h2>
+		<h2>Что полезного он нам даёт?</h2>
+		<ul>
+			<li class="next">автоматически строит дерево зависимостей ресурсов;</li>
+			<li class="next">упаковывает модули, которые могут быть загружены &laquo;лениво&raquo;, в&nbsp;отдельные файлы;</li>
+			<li class="next">выполняет оптимизацию кода;</li>
+			<li class="next">может делать &laquo;горячую&raquo; замену модулей на странице.</li>
+		</ul>
+	</div>
+</section>
+
+<section class="slide shout">
+	<div>
+		<h2>Дерево зависимостей</h2>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>Пример с CommonJS модулями</h2>
 		<pre>
 			<code>var shuffle = require(&quot;lodash/collection/shuffle&quot;);</code>
 			<code>var camelCase = require(&quot;lodash/string/camelCase&quot;);</code>
@@ -66,13 +79,6 @@
 			<code>  return shuffle(list).map(camelCase);</code>
 			<code>};</code>
 		</pre>
-	</div>
-</section>
-
-<section class="slide cover w h" style="background-color: white">
-	<div>
-		<h2>Webpack строит дерево зависимостей</h2>
-		<img src="assets/dependencies-tree.svg" style="width: 80%; height: 80%; top: 20%; left: 10%;">
 	</div>
 </section>
 
