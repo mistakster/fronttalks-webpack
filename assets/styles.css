@@ -13,10 +13,22 @@
 	vertical-align: middle;
 }
 
+.full .slide.shout.shrink h2 {
+	opacity: 0;
+	transform: scale(2) translateY(-50%);
+	transition: all 0.4s ease-out;
+}
+
+.full .slide.shout.shrink:target h2 {
+	opacity: 1;
+	transform: scale(1) translateX(0) translateY(-50%);
+}
+
+
+
 .config {
 	transition: 0.5s transform;
 }
-
 .config-part-1.active ~ .config {
 	transform: scale(5) translateX(4%) translateY(40%) !important;
 }
