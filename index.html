@@ -428,6 +428,43 @@
 
 <section class="slide shout">
 	<div>
+		<h2>Извлечение стилей из&nbsp;упаковки</h2>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>Стили на страницу добавляются динамически</h2>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>Конфигурируем плагин</h2>
+		<pre>
+			<code>var ExtractText = require(&quot;extract-text-webpack-plugin&quot;);</code>
+			<code>var extractStyles = new ExtractText(&quot;site.css&quot;);</code>
+			<code>var loader = extractStyles.extract(&quot;style&quot;, &quot;css!less&quot;);</code>
+		</pre>
+	</div>
+</section>
+
+<section class="slide">
+	<div>
+		<h2>Добавляем плагин и загрузчик</h2>
+		<pre>
+			<code>plugins: [ extractStyles ]</code>
+			<code>module: {</code>
+			<code>  loaders: [</code>
+			<code>    { test: /\.less$/, loader: loader }</code>
+			<code>  ]</code>
+			<code>}</code>
+		</pre>
+	</div>
+</section>
+
+<section class="slide shout">
+	<div>
 		<h2>Бонус: запуск&nbsp;задач</h2>
 	</div>
 </section>
