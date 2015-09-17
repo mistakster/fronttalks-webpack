@@ -24,12 +24,12 @@ module.exports = {
 	},
 
 	output: {
-		// директорая, куда будут сохраняться сгенерированные ресурсы
+		// директория, куда будут сохраняться сгенерированные ресурсы
 		path: path.resolve('./assets/'),
 		// формат имени для упаковок
 		filename: '[name].js',
 		// формат имени дополнительных сборок
-		// для подакшина имя файла будет меняться при изменении содержимого
+		// для продакшина имя файла будет меняться при изменении содержимого
 		chunkFilename: isProduction() ? '[chunkhash].chunk.js' : '[id].chunk.js',
 		// адрес для асинхронной загрузки дополнительных сборок
 		// в продакшине мы загружаем ресурсы из CDN
@@ -43,23 +43,25 @@ module.exports = {
 			exclude: /node_modules/,
 			loader: 'babel-loader?cacheDirectory&stage=0'
 		}, {
-			// 
+			// стили сторонних модулей загружаем без обработки
 			test: /\.css$/,
 			loader: staticCssPlugin.extract('style-loader', 'css-loader')
 		}, {
+			// стили проекта пропускаем через пре- и пост-процессоры
 			test: /\.less$/,
 			loader: staticCssPlugin.extract('style-loader', 'css-loader!postcss-loader!less-loader')
 		}, {
-			test: /\.(eot|ttf|woff|woff2|svg|png|jpg|jpeg)$/,
-			loader: 'url-loader?limit=20000'
+			// маленькие картинки и шрифты сохряняем в виде data URI
+			test: /\.(svg|png|jpg|jpeg|eot|ttf|woff|woff2)$/,
+			loader: 'url-loader?limit=10000'
 		}]
 	},
 
 	postcss: function () {
 		return [
-			// используем AutoPrefixer
+			// используем autoprefixer
 			autoprefixer,
-			// напишем свой плагин для PostCSS прям в конфигруации webpack
+			// напишем свой плагин для PostCSS прям в конфигурции webpack
 			postcss.plugin('addNamespaceToMyWidget', function () {
 				return function (css) {
 					css.eachRule(function (rule) {
@@ -80,12 +82,13 @@ module.exports = {
 		var plugins = [];
 
 		plugins.push(
-			// плаги для извлечения стилей из сборки
+			// плагин для извлечения стилей из сборки
 			staticCssPlugin,
 			// в глобальные переменные добавляем значение переменной окружения
 			new webpack.DefinePlugin({
 				'process.env.NODE_ENV': '"' + process.env.NODE_ENV + '"'
 			}),
+			new webpack.optimize.OccurenceOrderPlugin(),
 			// извлекаем общие модули для сайта и админки в отдельную сборку
 			new webpack.optimize.CommonsChunkPlugin({
 				name: 'commons'
