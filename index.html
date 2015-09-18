@@ -418,10 +418,9 @@
 	</div>
 </section>
 
-<section class="slide">
+<section class="slide cover w" style="background: white">
 	<div>
-		<h2>Стили на страницу добавляются динамически</h2>
-		<p class="note">Добавить скриншот</p>
+		<img src="assets/injected-styles.png" alt="Стили на страницу добавляются динамически"/>
 	</div>
 </section>
 
@@ -430,7 +429,7 @@
 		<h2>Конфигурируем плагин</h2>
 		<pre>
 			<code>var ExtractText = require(&quot;extract-text-webpack-plugin&quot;);</code>
-			<code>var extractStyles = new ExtractText(&quot;site.css&quot;);</code>
+			<code>var extractStyles = new ExtractText(&quot;main.css&quot;);</code>
 			<code>var loader = extractStyles.extract(&quot;style&quot;, &quot;css!less&quot;);</code>
 		</pre>
 	</div>
@@ -447,6 +446,14 @@
 			<code>  ]</code>
 			<code>}</code>
 		</pre>
+	</div>
+</section>
+
+<section class="slide cover h" style="background: white">
+	<div>
+		<span class="next generated-assets-1"></span>
+		<span class="next generated-assets-full"></span>
+		<img src="assets/generated-styles-and-graphics.png" alt="Сгенерированные ресурсы" class="generated-assets">
 	</div>
 </section>
 

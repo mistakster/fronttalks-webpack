@@ -86,3 +86,15 @@
 .loader-full.active ~ .move-to-https {
 	opacity: 1;
 }
+
+.generated-assets {
+	transition: 0.5s transform;
+	transform: scale(0.8) translateX(-60%) !important;
+}
+.generated-assets-1.active ~ .generated-assets {
+	transform: scale(2) translateX(-25%) translateY(-40%) !important;
+}
+.generated-assets-full.active ~ .generated-assets {
+	transform: scale(0.8) translateX(-60%) !important;
+}
+
